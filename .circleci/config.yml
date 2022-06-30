@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints:  ["43:d4:bd:9e:78:f4:ee:30:90:f5:79:a6:c0:e3:7b:ed"]
+          fingerprints:  ["fc:dd:b6:fd:b0:17:ac:8a:1d:c0:ce:9e:d2:6e:93:f5"]
       - run:
           name: Install dependencies (ansible)
           command: |
