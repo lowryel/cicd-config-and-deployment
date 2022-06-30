@@ -7,7 +7,7 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     docker:
       - image: python:3.7-alpine:3.11.5
-    # Add steps to the job
+    # Add job steps
     steps:
       - checkout
       - add_ssh_keys:
