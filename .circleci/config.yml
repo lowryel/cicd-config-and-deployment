@@ -6,16 +6,12 @@ jobs:
   configure_ansible_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     docker:
-      - image: python:3.6-alpine
+      - image: python:3.7-alpine:3.11.5
     # Add steps to the job
     steps:
       - checkout
       - add_ssh_keys:
-<<<<<<< HEAD
           fingerprints:  ["43:d4:bd:9e:78:f4:ee:30:90:f5:79:a6:c0:e3:7b:ed"]
-=======
-          fingerprints:  ["3:d4:bd:9e:78:f4:ee:30:90:f5:79:a6:c0:e3:7b:ed"]
->>>>>>> 969e0034e651bd9b0d2aba8f926f68229331dd6b
       - run:
           name: Install dependencies (ansible)
           command: |
