@@ -10,8 +10,8 @@ jobs:
     # Add steps to the job
     steps:
       - checkout
-      - add_ssh_key:
-          fingerprint:  ['43:d4:bd:9e:78:f4:ee:30:90:f5:79:a6:c0:e3:7b:ed']
+      - add_ssh_keys:
+          fingerprints:  ["43:d4:bd:9e:78:f4:ee:30:90:f5:79:a6:c0:e3:7b:ed"]
       - run:
           name: Install dependencies (ansible)
           command: |
