@@ -17,9 +17,13 @@ jobs:
           command: |
             apk add --update ansible # Install ansible
       - run:
+          name: Install dependencies (openssh)
+          command: |
+            apk add --update openssh-client # Install openssh-client
+      - run:
           name: Run your playbook to configure server
           command: |
-            sudo ansible-playbook -i inventory.txt main-remote.yml
+            ansible-playbook -i inventory.txt main-remote.yml
 
   create_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
