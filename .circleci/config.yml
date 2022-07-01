@@ -16,15 +16,15 @@ jobs:
           name: Install dependencies (ansible)
           command: |
             apk add --update ansible # Install ansible
-      - run:
-          name: Install dependencies (openssh)
-          command: |
-            apk add --update openssh-server # Install openssh-server
-      - run:
-          name: Install dependencies (python)
-          command: |
-            systemctl enable ssh
-            systemctl start ssh
+      # - run:
+      #     name: Install dependencies (openssh)
+      #     command: |
+      #       apk add --update openssh-server # Install openssh-server
+      # - run:
+      #     name: Install dependencies (python)
+      #     command: |
+      #       systemctl enable ssh
+      #       systemctl start ssh
       - run:
           name: Run your playbook to configure server
           command: |
