@@ -60,9 +60,9 @@ jobs:
             #Test if the website exists
             if curl -s --head ${URL}
             then
-              echo "Website exists"
+              return 0
             else
-              echo "Website does not exist"
+              return 1
             fi
 # Invoke jobs via workflows
 workflows:
