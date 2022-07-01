@@ -6,7 +6,7 @@ jobs:
   configure_ansible_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     docker:
-      - image: python:3.8-alpine3.16
+      - image: python:latest-alpine:latest
     # Add job steps
     steps:
       - checkout
@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Run your playbook to configure server
           command: |
-            ansible-playbook -i inventory.txt main-remote.yml
+            ansible-playbook main-remote.yml -i inventory.txt
 
   create_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
