@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints:  ["fc:dd:b6:fd:b0:17:ac:8a:1d:c0:ce:9e:d2:6e:93:f5"]
+          fingerprints:  ["03:5f:a1:9c:a5:92:dd:00:cf:dc:36:ca:2d:d9:be:82"]
 
       - run:
           name: Install dependencies (openssh)
@@ -21,7 +21,7 @@ jobs:
           name: Install git
           command: |
             apk add --update git # Install git
-            
+
       - run:
           name: Install dependencies (ansible)
           command: |
