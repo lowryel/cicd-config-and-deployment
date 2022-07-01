@@ -12,18 +12,21 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:  ["fc:dd:b6:fd:b0:17:ac:8a:1d:c0:ce:9e:d2:6e:93:f5"]
+
+      - run:
+          name: Install dependencies (openssh)
+          command: |
+            apk add --update openssh # Install openssh
+      - run:
+          name: Install git
+          command: |
+            apk add --update git # Install git
+            
       - run:
           name: Install dependencies (ansible)
           command: |
             apk add --update ansible # Install ansible
-      # - run:
-      #     name: Install dependencies (openssh)
-      #     command: |
-      #       apk add --update openssh # Install openssh
-      # - run:
-      #     name: Install git
-      #     command: |
-      #       apk add --update git # Install git
+
       - run:
           name: Run your playbook to configure server
           command: |
