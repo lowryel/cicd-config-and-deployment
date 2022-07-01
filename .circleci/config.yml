@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Install dependencies (openssh)
           command: |
-            apk add --update openssh-server # Install openssh-server
+            apk add --update openssh # Install openssh
 
       - run:
           name: Run your playbook to configure server
