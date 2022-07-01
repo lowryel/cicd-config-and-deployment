@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints:  ["70:d6:cd:33:1c:58:64:f6:71:f1:be:48:17:51:fe:e5"]
+          fingerprints:  ["0d:42:f7:5c:da:67:b6:9c:d2:0e:3b:50:b2:56:7c:f1"]
 
       - run:
           name: Install dependencies (openssh)

@@ -8,7 +8,7 @@ Resources:
     Properties:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
-      ImageId: ami-0729e439b6769d6ab
+      ImageId: ami-08d4ac5b634553e16
       InstanceType: t2.micro
       KeyName: roger
 
