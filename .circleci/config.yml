@@ -47,9 +47,27 @@ jobs:
             --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
             --region us-east-1
           # - when: on_fail # a command used to ignore errors
+
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run: apk add --update curl
+      - run:
+          name: "Smoke test"
+          command: |
+            URL:  "https://blog.udacity.com/"
+            #Test if the website exists
+            if curl -s --head ${URL}
+            then
+              echo "Website exists"
+            else
+              echo "Website does not exist"
+            fi
 # Invoke jobs via workflows
 workflows:
   ansible-setup-workflow:
     jobs:
       # - create_infrastructure
-      - configure_ansible_infrastructure
+      # - configure_ansible_infrastructure
+      - smoke_test
