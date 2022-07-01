@@ -16,14 +16,14 @@ jobs:
           name: Install dependencies (ansible)
           command: |
             apk add --update ansible # Install ansible
-      - run:
-          name: Install dependencies (openssh)
-          command: |
-            apk add --update openssh # Install openssh
-      - run:
-          name: Install git
-          command: |
-            apk add --update git # Install git
+      # - run:
+      #     name: Install dependencies (openssh)
+      #     command: |
+      #       apk add --update openssh # Install openssh
+      # - run:
+      #     name: Install git
+      #     command: |
+      #       apk add --update git # Install git
       - run:
           name: Run your playbook to configure server
           command: |
