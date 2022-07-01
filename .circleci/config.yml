@@ -6,7 +6,7 @@ jobs:
   configure_ansible_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     docker:
-      - image: python:3.7-alpine3.16
+      - image: python:3.8-alpine3.16
     # Add job steps
     steps:
       - checkout
