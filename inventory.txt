@@ -1,4 +1,3 @@
-[root]
-34.201.50.204
 [webserver]
-34.201.50.204 ansible_user=ubuntu ansible_connection=ssh ansible_private_key_file=roger.pem
+34.201.50.204 ansible_user=ubuntu ansible_connection=ssh ansible_private_key_file=roger
+
