@@ -96,4 +96,4 @@ workflows:
       # - smoke_test
       - destroy_stack_test:
           requires: 
-            - create_environment
+            - create_infastructure
