@@ -2,6 +2,16 @@
 version: 2.1
 
 # Define a job to be invoked later in a workflow.
+
+command:  
+  destroy environment:
+    steps:
+      - run: 
+          name: destroy environment
+          command:
+            aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5}
+
+
 jobs:
   configure_ansible_infrastructure:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -48,26 +58,42 @@ jobs:
             --region us-east-1
           # - when: on_fail # a command used to ignore errors
 
-  smoke_test:
+  # smoke_test:
+  #   docker:
+  #     - image: alpine:latest
+  #   steps:
+  #     - run: apk add --update curl
+  #     - run:
+  #         name: "Smoke test"
+  #         command: |
+  #           URL= "https://blog.udacity.com/"
+
+  #           if curl -s --head ${URL}
+  #           then
+  #             return 0
+  #           else
+  #             return 1
+  #           fi
+
+
+  destroy_stack_test:
     docker:
       - image: alpine:latest
     steps:
-      - run: apk add --update curl
+      - checkout
       - run:
-          name: "Smoke test"
+          name: "simulate error"
           command: |
-            URL= "https://blog.udacity.com/"
-
-            if curl -s --head ${URL}
-            then
-              return 0
-            else
-              return 1
-            fi
+            return 1
+      - destroy_environment:
+        when: on_fail
 # Invoke jobs via workflows
 workflows:
   ansible-setup-workflow:
     jobs:
-      # - create_infrastructure
+      - create_infrastructure
       # - configure_ansible_infrastructure
-      - smoke_test
+      # - smoke_test
+      - destroy_stack_test:
+          requires: 
+            - create_environment
