@@ -56,6 +56,10 @@ jobs:
             --template-file cf-template.yml \
             --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
             --region us-east-1
+      - run: return 1
+      - run:
+          command: destroy_environment
+          when: on_fail
           # - when: on_fail # a command used to ignore errors
 
   # smoke_test:
@@ -87,7 +91,9 @@ jobs:
             return 1
       - run:
           command: destroy_environment
-          when: on_fail
+          when: on_fail # for some reason, this didn't work have to add the command to the create_infrastructure portion
+
+
 # Invoke jobs via workflows
 workflows:
   ansible-setup-workflow:
@@ -95,6 +101,6 @@ workflows:
       - create_infrastructure
       # - configure_ansible_infrastructure
       # - smoke_test
-      - destroy_stack_test:
-          requires: 
-            - create_infrastructure
+      # - destroy_stack_test:
+      #     requires: 
+      #       - create_infrastructure
