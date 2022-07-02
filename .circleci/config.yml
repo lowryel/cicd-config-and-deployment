@@ -58,7 +58,7 @@ jobs:
             --region us-east-1
       - run: return 1
       - destroy_environment
-          when: on_fail
+        when: on_fail
           # - when: on_fail # a command used to ignore errors
 
   # smoke_test:
