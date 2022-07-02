@@ -4,7 +4,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 
 command:  
-  destroy environment:
+  destroy_environment:
     steps:
       - run: 
           name: destroy environment
