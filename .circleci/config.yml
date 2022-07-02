@@ -3,11 +3,11 @@ version: 2.1
 
 # Define a job to be invoked later in a workflow.
 
-command:  
+commands:  
   destroy_environment:
     steps:
       - run: 
-          name: destroy environment
+          name: "Destroy environment"
           command:
             aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5}
 
@@ -76,17 +76,18 @@ jobs:
   #           fi
 
 
-  destroy_stack_test:
+  destroy_stack_test: #smoke test
     docker:
-      - image: alpine:latest
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
           name: "simulate error"
           command: |
             return 1
-      - destroy_environment:
-        when: on_fail
+      - run:
+          command: destroy_environment
+          when: on_fail
 # Invoke jobs via workflows
 workflows:
   ansible-setup-workflow:
@@ -96,4 +97,4 @@ workflows:
       # - smoke_test
       - destroy_stack_test:
           requires: 
-            - create_infastructure
+            - create_infrastructure
