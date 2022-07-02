@@ -122,7 +122,7 @@ jobs:
           # Similarly, you can create and use $OldStackID environment variable in place of production-distro 
           command: |
             export OldBucketID=$(cat ~/textfile.txt)
-            aws s3 rm "mybucket791408011508" --recursive
+            aws cloudformation delete-stack --stack-name production-distro
 
   # smoke_test:
   #   docker:
@@ -140,6 +140,9 @@ jobs:
   #           else
   #             return 1
   #           fi
+
+
+# http://my791408011508.s3-website-us-east-1.amazonaws.com
 
 
   destroy_stack_test: #smoke test
