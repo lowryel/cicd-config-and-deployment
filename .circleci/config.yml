@@ -59,6 +59,7 @@ jobs:
             --region us-east-1
       # - run: return 1
       - run:
+          name: Rollback job
           command: destroy_environment
           # - when: on_fail # a command used to ignore errors
 
