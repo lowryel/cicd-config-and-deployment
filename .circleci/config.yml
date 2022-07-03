@@ -87,10 +87,16 @@ jobs:
             aws cloudformation \
             list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
             --no-paginate --output text > ~/textfile.txt
+
+            aws cloudfront \
+            list-distributions --query "DistributionList.Items[*].Id" \
+            --output text > ~/front.txt
       - persist_to_workspace:
           root: ~/
           paths: 
             - textfile.txt
+            - front.txt
+
 
   # Executes the cloudfront.yml template that will modify the existing CloudFront Distribution, change its target from the old bucket to the new bucket - `mybucket-${CIRCLE_WORKFLOW_ID:0:7}`. 
   # Notice here we use the stack name `production-distro` which is the same name we used while deploying to the S3 bucket manually.
@@ -106,6 +112,7 @@ jobs:
             --template-file cloudfront.yml \
             --stack-name production-distro \
             --parameter-overrides PipelineID="mybucket-${CIRCLE_WORKFLOW_ID:0:7}"
+
 
   # Destroy the previous production version's S3 bucket and CloudFormation stack. 
   clean_up_old_front_end:
@@ -124,6 +131,8 @@ jobs:
           command: |
             export OldBucketID=$(cat ~/textfile.txt)
             aws s3 rm "s3://${OldBucketID}" --recursive
+            export OldStackID=$(cat ~/front.txt)
+            aws cloudformation delete-stack --stack-name "${OldStackID}"
 
   # smoke_test:
   #   docker:
