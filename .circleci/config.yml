@@ -65,7 +65,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Create Cloudfront Distribution"
+          name: "Execute bucket.yml - Create Cloudformation Stack"
           command: |
             aws cloudformation deploy \
             --template-file bucket.yml \
@@ -120,9 +120,10 @@ jobs:
           name: Destroy the previous S3 bucket and CloudFormation stack. 
           # Use $OldBucketID environment variable or mybucket644752792305 below.
           # Similarly, you can create and use $OldStackID environment variable in place of production-distro 
+            # export OldBucketID=mybucket791408011508
           command: |
             export OldBucketID=$(cat ~/textfile.txt)
-            aws cloudformation delete-stack --stack-name production-distro
+            aws s3 rm "s3://${OldBucketID}" --recursive
 
   # smoke_test:
   #   docker:
