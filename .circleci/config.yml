@@ -151,6 +151,8 @@ jobs:
 
 # aws s3api get-object --bucket DOC-EXAMPLE-BUCKET1 --key dir/my_images.tar.bz2 my_images.tar.bz2
 
+# http://my791408011508.s3-website-us-east-1.amazonaws.com
+
 
   destroy_stack_test: #smoke test
     docker:
