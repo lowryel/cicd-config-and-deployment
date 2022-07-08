@@ -1,0 +1,108 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+main{
+    width: 100%;
+    height: 100vh;
+}
+
+#header{
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-column: 20% 80%;
+    grid-template-columns: 0.7fr 5.3fr;
+    grid-template-rows: 1fr;
+    background-size: cover;
+}
+
+.navBar{
+    display: block;
+    justify-content: start;
+    flex-wrap: wrap;
+    background-color: #0b0c14c5;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    font-size: small;
+}
+
+.head_nav{
+    background: url('./img/mypic.jpg') no-repeat center center;
+    background-size: cover;
+    height: 120px;
+    background-color: rgb(3, 12, 20);
+}
+
+.head_nav h3{
+    color: white;
+    text-align: center;
+    background-color: rgb(165, 13, 97);
+    font-size: smaller;
+    position: relative;
+    top: 100%;
+}
+
+.nav{
+    flex-wrap:wrap;
+    padding-top: 15px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.margin-btn-avi{
+    margin-top: 20px;
+}
+
+.nav li{
+    list-style: none;
+    border-bottom: 1px solid rgba(253, 188, 49, 0.932);
+}
+
+
+.nav li a{
+    flex-wrap: wrap;
+    list-style: none;
+    color: rgb(228, 228, 228);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.nav li a:hover{
+    color: rgb(6, 245, 225);
+    transition-delay: 0.5s;
+}
+/* main background */
+
+.home-background{
+    background:url('./img/rolandas.jpg')no-repeat center center;  
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.home-background h2, h4{
+    color: rgb(197, 5, 111);
+    text-align: center;
+    position: relative;
+    bottom: -40%;
+    
+}
+
+.home-background h4{
+    color:rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    justify-content: center;
+    align-self: center;
+}
+
+.home-background h4:hover{
+    transition: 2s;
+    right: 50px;
+    transform: translate(50px, 0px);
+}
+
+

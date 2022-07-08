@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Montserrat' sans-serif;
+}
+
+p{
+    font-family: sans-serif;
+    font-size: smaller;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(248, 248, 229);
+    background-size: cover no-repeat;
+}
+
+#header{
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-column: 20% 80%;
+    row-gap: 10px;
+    grid-template-columns: 0.7fr 5.3fr;
+    grid-template-rows: 1fr;
+    background-size: cover;
+}
+
+.navBar{
+    display: block;
+    justify-content: start;
+    flex-wrap: wrap;
+    background-color: #0b0c14c5;
+    height: 100vh;
+    width: 100%;
+    font-size: small;
+    border-right: 1px solid black;
+}
+
+.head_nav{
+    background: url('./img/mypic.jpg') no-repeat center center;
+    background-size: cover;
+    height: 120px;
+    background-color: rgb(3, 12, 20);
+}
+
+.head_nav h3{
+    color: white;
+    text-align: center;
+    background-color: rgb(165, 13, 97);
+    font-size: smaller;
+    position: relative;
+    bottom: -85%;
+}
+
+.nav{
+    flex-wrap:wrap;
+    padding-top: 15px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.nav li a{
+    flex-wrap: wrap;
+    list-style: none;
+    color: rgb(201, 201, 201);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.nav li a:hover{
+    color: rgb(255, 255, 255);
+    transition-delay: 0.5s;
+}
+
+.nav hr{
+    font: bold;
+    width: 100%;
+    color: black;
+    margin: 0%;
+}
+/* main background */
+
+.home-background{ 
+    background-size: cover;
+    width: 100%;
+}
+
+.right-about{
+    margin: 0 50px;
+}
+
+.home-background{
+    height: 60px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 2px dotted plum;
+    padding-bottom: -10px;
+}
+
+.home-background img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* main about */
+
+
+.personal-info{
+    line-height: 20px;
+}
+
+.personal-info h6{
+    font-family:sans-serif, cursive, monospace;
+    font-size: large;
+}
+
+.personal-info p{
+    font-family:sans-serif, cursive, monospace;
+    font-size: smaller;
+}
+
+.col img{
+    width: 80px;
+    height: 80px;
+}
+
+
+
+
