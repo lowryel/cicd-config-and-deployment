@@ -1,5 +1,5 @@
 # Exercise for setting up a web server in an EC
-- name: Exercise for setting up a web server in an EC 
+- name: Exercise for setting up a web server in an EC2
   # Use the public IP if the VM is already created
   hosts: webserver
   user: ubuntu
